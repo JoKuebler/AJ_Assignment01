@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Sequence {
 
     public String name;
-    public ArrayList<Nucleotide> sequence = new ArrayList<Nucleotide>();
+    public String sequence;
 
 
 

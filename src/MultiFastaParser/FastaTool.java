@@ -3,6 +3,7 @@ package MultiFastaParser;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -37,33 +38,32 @@ public class FastaTool {
         return fileString;
 
     }
-
-    //TODO create arraylist of sequences
-    public ArrayList<String> getNames(String parsedFile) {
+    
+    public void getNames(String parsedFile) {
 
         ArrayList<Sequence> seqObj = new ArrayList<>();
-        
 
-        ArrayList<String> names = new ArrayList<>();
-        ArrayList<String> sequences = new ArrayList<>();
         String[] lineArray = parsedFile.split("\n");
         String curSeq = "";
+        Sequence curSequence = new Sequence();
 
         for (int i = 0; i < lineArray.length; i++) {
             if (lineArray[i].startsWith(">")) {
-                if (curSeq != "") {
-                    sequences.add(curSeq);
+                if (curSequence.name != null) {
+                    curSequence.sequence = curSeq;
                     curSeq = "";
+                    seqObj.add(curSequence);
                 }
-                names.add(lineArray[i]);
+                curSequence = new Sequence();
+                curSequence.name = lineArray[i];
             } else {
-                curSeq+=lineArray[i];
+                curSeq = curSeq + lineArray[i];
             }
         }
 
-        sequences.add(curSeq);
+        curSequence.sequence = curSeq;
+        seqObj.add(curSequence);
 
-        return sequences;
     }
 
 }

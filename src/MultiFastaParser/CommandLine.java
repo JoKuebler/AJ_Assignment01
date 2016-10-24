@@ -1,14 +1,20 @@
 package MultiFastaParser;
 
+import java.util.ArrayList;
+
 /**
  * Created by JKuebler on 24/10/16.
  */
 public class CommandLine {
 
-    public String output;
+    public void displayAlignment(ArrayList<Sequence> sequences) {
 
-    public CommandLine(String output) {
-        this.output = output;
+        for (int i = 0; i < sequences.size() ; i++) {
+
+        }
+
+
+
     }
 
 
