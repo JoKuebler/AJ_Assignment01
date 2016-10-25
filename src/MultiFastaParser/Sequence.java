@@ -10,6 +10,4 @@ public class Sequence {
     public String name;
     public String sequence;
 
-
-
 }
