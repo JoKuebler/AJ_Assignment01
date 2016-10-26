@@ -14,7 +14,7 @@ public class FastaTool {
     public static void main(String[] args) {
 
         CommandLine c1 = new CommandLine();
-        c1.displayAlignment(c1.getNames(c1.readFile("/Users/jonas/Desktop/data01.fna")),60);
+        c1.displayAlignment(c1.getSequences(c1.readFile("/Users/jonas/Desktop/data01.fna")),60);
 
 
     }
